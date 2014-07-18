@@ -223,7 +223,7 @@ antigen-revert () {
         # Save current revision.
         local old_rev="$(--plugin-git rev-parse HEAD)"
         # Pull changes if update requested.
-        --plugin-git pull
+        --plugin-git pull --rebase
         # Update submodules.
         --plugin-git submodule update --recursive
         # Get the new revision.
@@ -324,7 +324,7 @@ antigen-selfupdate () {
             # If current head is detached HEAD, checkout to master branch.
             git checkout master
         fi
-        git pull
+        git pull --rebase
     )
 }
 
